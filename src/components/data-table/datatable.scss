@@ -1,0 +1,281 @@
+@use "sass:color";
+
+.datatable-container {
+  font-family: "Work Sans", sans-serif;
+  overflow: hidden;
+
+  .table-wrapper {
+    background: #fff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.04);
+    overflow-x: auto;
+    border-radius: 4px 
+  }
+
+  .datatable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+
+    thead {
+      background: #fff;
+
+      tr {
+        border: none;
+      }
+
+      th {
+        padding: 16px 20px;
+        text-align: left;
+        font-weight: 500;
+        font-size: 12px;
+        color: #545f7d;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #e5e7eb;
+        transition: background-color 0.2s ease;
+
+        &.first-column {
+          padding-left: 30px;
+        }
+
+        &.last-column {
+          padding-right: 30px;
+        }
+
+        &.sortable {
+          cursor: pointer;
+          user-select: none;
+
+          &:hover {
+            background-color: #f9fafb;
+          }
+        }
+
+        .header-content {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #e5e7eb;
+        transition: background-color 0.2s ease;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: rgba(84, 95, 125, 0.02);
+        }
+
+        td {
+          padding: 20px;
+          color: #545f7d;
+          font-size: 14px;
+
+          &.first-column {
+            padding-left: 30px;
+          }
+
+          &.last-column {
+            padding-right: 30px;
+          }
+        }
+      }
+
+      .loading-cell,
+      .empty-cell {
+        text-align: center;
+        padding: 48px 24px;
+        color: #545f7d;
+      }
+
+      .loading-cell {
+        font-size: 14px;
+      }
+
+      .empty-cell {
+        .empty-state {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+
+          .empty-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            color: #39cdcc;
+
+            svg {
+              width: 48px;
+              height: 48px;
+            }
+          }
+
+          .empty-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            h3 {
+              font-size: 16px;
+              font-weight: 600;
+              color: #213f7d;
+              margin: 0;
+            }
+
+            p {
+              font-size: 14px;
+              color: #545f7d;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    // border: 1px solid #e5e7eb;
+    border-top: none;
+    background-color: #ffffff;
+
+    .showing-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #545f7d;
+
+      .page-size-select {
+        padding: 6px 28px 6px 10px;
+        border: 1px solid #213f7d;
+        border-radius: 4px;
+        background-color: rgba(33, 63, 125, 0.1);
+        color: #213f7d;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Work Sans", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%23213f7d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+
+        &:hover:not(:disabled) {
+          background-color: rgba(33, 63, 125, 0.15);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(33, 63, 125, 0.1);
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .nav-button {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #213f7d;
+        border-radius: 4px;
+        background-color: rgba(33, 63, 125, 0.1);
+        color: #213f7d;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        svg {
+          stroke: #213f7d;
+        }
+
+        &:hover:not(:disabled) {
+          background-color: rgba(33, 63, 125, 0.2);
+        }
+
+        &:active:not(:disabled) {
+          transform: scale(0.95);
+        }
+
+        &:disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+          background-color: rgba(33, 63, 125, 0.05);
+        }
+      }
+
+      .page-numbers {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .page-number {
+          min-width: 28px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px 8px;
+          border: none;
+          border-radius: 4px;
+          background-color: transparent;
+          color: #545f7d;
+          font-size: 14px;
+          font-weight: 400;
+          font-family: "Work Sans", sans-serif;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover:not(.active):not(.ellipsis):not(:disabled) {
+            background-color: rgba(84, 95, 125, 0.1);
+          }
+
+          &.active {
+            background-color: rgba(33, 63, 125, 0.1);
+            color: #213f7d;
+            font-weight: 500;
+          }
+
+          &.ellipsis {
+            cursor: default;
+            pointer-events: none;
+          }
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}
