@@ -1,0 +1,128 @@
+@use "@/styles/mixins" as *;
+@use "sass:color";
+
+.sidebar-container {
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Work Sans", sans-serif;
+  background-color: rgba(255, 255, 255, 1);
+
+  .sidebar-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+
+    img {
+      width: 120px;
+      max-width: 100%;
+    }
+  }
+
+  .sidebar-main {
+    flex: 1;
+    border-right: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.04);
+    overflow-y: auto;
+
+    .switch-organization {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 2rem 2rem;
+      cursor: pointer;
+
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        color: #213f7d;
+      }
+    }
+
+    .dashboard {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 2rem;
+
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(84, 95, 125, 0.8);
+      }
+
+      img {
+        opacity: 0.8;
+      }
+    }
+
+    .sidebar-items {
+      section {
+        margin-bottom: 1rem;
+
+        &:last-child {
+          margin-top: auto;
+        }
+
+        .section-title {
+          padding: 1rem 2rem 0 2rem;
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 500;
+          color: #545f7d;
+          margin-bottom: 0.5rem;
+        }
+
+        .item-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            cursor: pointer;
+
+            transition: background-color 0.2s ease, color 0.2s ease;
+
+            color: rgba(84, 95, 125, 0.8);
+
+            img {
+              width: 20px;
+              height: 20px;
+              opacity: 0.8;
+              transition: opacity 0.2s ease;
+            }
+
+            &.active {
+              border-left: 4px solid rgba(57, 205, 204, 1);
+              background-color: rgba(57, 205, 204, 0.1);
+              color: #213f7d;
+              font-size: 16px;
+              font-weight: 400;
+
+              img {
+                opacity: 1;
+              }
+            }
+
+            &:hover:not(.active) {
+              background-color: rgba(57, 205, 204, 0.1);
+              color: #213f7d;
+              font-size: 16px;
+              font-weight: 400;
+
+              img {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

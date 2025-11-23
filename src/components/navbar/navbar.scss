@@ -1,0 +1,38 @@
+@use "@/styles/mixins" as *;
+@use "sass:color";
+
+.navbar-container {
+  height: 70px;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  .search-container {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+  }
+
+  .nav-items {
+    display: flex;
+    gap: 1rem;
+
+    .nav-item {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+
+      img {
+        display: block;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
