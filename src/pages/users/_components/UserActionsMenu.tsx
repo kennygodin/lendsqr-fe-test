@@ -29,18 +29,18 @@ export const UserActionsMenu = ({ user }: UserActionsMenuProps) => {
   }, [isOpen]);
 
   const handleViewDetails = () => {
-    console.log("View details for user:", user);
+    localStorage.setItem("selected_user", JSON.stringify(user));
     navigate(`/users/${user.id}`);
     setIsOpen(false);
   };
 
   const handleBlacklist = () => {
-    console.log("Blacklist user:", user);
+    // console.log("Blacklist user:", user);
     setIsOpen(false);
   };
 
   const handleActivate = () => {
-    console.log("Activate user:", user);
+    // console.log("Activate user:", user);
     setIsOpen(false);
   };
 

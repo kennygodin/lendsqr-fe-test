@@ -25,6 +25,12 @@ import ReportsPage from "./pages/reports/reports";
 import SettlementsPage from "./pages/settlements/settlements";
 import ServiceAccountsPage from "./pages/service-accounts/service-accounts";
 import ServicesPage from "./pages/services/services";
+import DocumentsPage from "./pages/user-details/documents";
+import BankDetailsPage from "./pages/user-details/bank-details";
+import UserLoansPage from "./pages/user-details/user-loans";
+import UserSavingsPage from "./pages/user-details/user-savings";
+import AppSystemPage from "./pages/user-details/app-system";
+import GeneralDetailsPage from "./pages/user-details/general-details";
 
 function App() {
   const queryClient = new QueryClient();
@@ -36,7 +42,16 @@ function App() {
 
           <Route element={<DashboardLayout />}>
             <Route path="/users" element={<UsersPage />} />
-            <Route path="/users/:id" element={<UserDetailsPage />} />
+
+            <Route path="/users/:id" element={<UserDetailsPage />}>
+              <Route index element={<GeneralDetailsPage />} />
+              <Route path="documents" element={<DocumentsPage />} />
+              <Route path="bank-details" element={<BankDetailsPage />} />
+              <Route path="loans" element={<UserLoansPage />} />
+              <Route path="savings" element={<UserSavingsPage />} />
+              <Route path="app-system" element={<AppSystemPage />} />
+            </Route>
+
             <Route path="/guarantors" element={<GuarantorsPage />} />
             <Route path="/loans" element={<LoanPage />} />
             <Route path="/decision" element={<DecisionModelsPage />} />

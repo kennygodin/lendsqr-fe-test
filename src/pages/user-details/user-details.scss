@@ -1,6 +1,24 @@
+@use "@/styles/mixins" as *;
+
 .user-details-container {
   padding: 4rem;
   font-family: "Work Sans", sans-serif;
+
+  @include lg {
+    padding: 2.5rem;
+  }
+
+  @include md {
+    padding: 2rem;
+  }
+
+  @include sm {
+    padding: 1.5rem;
+  }
+
+  @include xs {
+    padding: 1rem;
+  }
 
   .back-button {
     width: max-content;
@@ -15,15 +33,411 @@
     font-weight: 400;
     text-align: left;
     font-family: "Work Sans", sans-serif;
-
+    margin-bottom: 1rem;
     transition: all 0.2s ease;
 
-    svg {
+    @include sm {
+      font-size: 14px;
+      gap: 8px;
+    }
+
+    img {
       flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+
+      @include sm {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     &:hover {
       transform: scale(0.98);
+    }
+  }
+
+  .user-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+
+    @include md {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+      color: rgba(33, 63, 125, 1);
+
+      @include md {
+        font-size: 20px;
+      }
+
+      @include sm {
+        font-size: 18px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      @include sm {
+        gap: 12px;
+        width: 100%;
+      }
+
+      button {
+        background-color: transparent;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-family: "Work Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+
+        @include sm {
+          padding: 10px 16px;
+          font-size: 12px;
+          flex: 1;
+        }
+
+        &.blacklist {
+          border: 1px solid #e4033b;
+          color: #e4033b;
+        }
+
+        &.activate {
+          border: 1px solid #39cdcc;
+          color: #39cdcc;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+
+  .user-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 2rem 2rem 0 2rem;
+    background: #fff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.04);
+
+    @include lg {
+      padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    @include md {
+      padding: 1.25rem 1.25rem 0 1.25rem;
+    }
+
+    @include sm {
+      padding: 1rem 1rem 0 1rem;
+    }
+
+    .user-header-details {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-bottom: 2rem;
+
+      @include lg {
+        gap: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+
+      @include md {
+        flex-wrap: wrap;
+        gap: 1.25rem;
+      }
+
+      @include sm {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .user-profile-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @include sm {
+          gap: 15px;
+        }
+
+        .user-avatar {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #d4e7ff 0%, #e8f1ff 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          @include md {
+            width: 80px;
+            height: 80px;
+          }
+
+          @include sm {
+            width: 70px;
+            height: 70px;
+          }
+
+          img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+
+            @include md {
+              width: 40px;
+              height: 40px;
+            }
+
+            @include sm {
+              width: 35px;
+              height: 35px;
+            }
+          }
+        }
+
+        .user-name-info {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          @include sm {
+            gap: 6px;
+          }
+
+          .user-fullname {
+            font-size: 22px;
+            font-weight: 500;
+            color: #213f7d;
+            margin: 0;
+
+            @include md {
+              font-size: 18px;
+            }
+
+            @include sm {
+              font-size: 16px;
+            }
+          }
+
+          .user-id {
+            font-size: 14px;
+            font-weight: 400;
+            color: #545f7d;
+            margin: 0;
+
+            @include sm {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .divider {
+        width: 1px;
+        height: 60px;
+        background: rgba(84, 95, 125, 0.2);
+        flex-shrink: 0;
+
+        @include md {
+          height: 50px;
+        }
+
+        @include sm {
+          width: 100%;
+          height: 1px;
+        }
+      }
+
+      .user-tier-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @include sm {
+          gap: 6px;
+        }
+
+        .tier-label {
+          font-size: 14px;
+          font-weight: 500;
+          color: #545f7d;
+          margin: 0;
+
+          @include sm {
+            font-size: 12px;
+          }
+        }
+
+        .tier-stars {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+
+          @include sm {
+            gap: 4px;
+          }
+
+          img {
+            width: 16px;
+            height: 16px;
+
+            @include sm {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+
+      .user-bank-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @include sm {
+          gap: 6px;
+        }
+
+        .account-balance {
+          font-size: 22px;
+          font-weight: 500;
+          color: #213f7d;
+          margin: 0;
+
+          @include md {
+            font-size: 18px;
+          }
+
+          @include sm {
+            font-size: 16px;
+          }
+        }
+
+        .bank-info {
+          font-size: 12px;
+          font-weight: 400;
+          color: #213f7d;
+          margin: 0;
+
+          @include sm {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+
+    .user-header-tabs {
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      @include md {
+        gap: 0;
+      }
+
+      .tab-button {
+        background: none;
+        border: none;
+        padding: 12px 3rem;
+        font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+        position: relative;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        flex-shrink: 0;
+
+        @include lg {
+          padding: 12px 2rem;
+          font-size: 15px;
+        }
+
+        @include md {
+          padding: 12px 1.5rem;
+          font-size: 14px;
+        }
+
+        @include sm {
+          padding: 10px 1.25rem;
+          font-size: 13px;
+        }
+
+        @include xs {
+          padding: 10px 1rem;
+          font-size: 12px;
+        }
+
+        &:hover {
+          color: #39cdcc;
+        }
+
+        &.active {
+          color: #39cdcc;
+        }
+
+        &.active::after {
+          content: "";
+          position: absolute;
+          bottom: -0.5px;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: #39cdcc;
+
+          @include sm {
+            height: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  .outlet {
+    margin-top: 2rem;
+
+    @include md {
+      margin-top: 1.5rem;
+    }
+
+    @include sm {
+      margin-top: 1rem;
     }
   }
 }
