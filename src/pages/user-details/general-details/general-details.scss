@@ -1,0 +1,134 @@
+@use "@/styles/mixins" as *;
+
+.general-details-container {
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.04);
+  font-family: "Work Sans", sans-serif;
+
+  @include lg {
+    padding: 1.5rem;
+  }
+
+  @include md {
+    padding: 1.25rem;
+  }
+
+  @include sm {
+    padding: 1rem;
+  }
+
+  .details-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+    @include md {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    @include sm {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section-title {
+      color: #213f7d;
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 2rem 0;
+
+      @include md {
+        font-size: 15px;
+        margin-bottom: 1.5rem;
+      }
+
+      @include sm {
+        font-size: 14px;
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem 1.5rem;
+
+      @include lg {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.75rem 1.25rem;
+      }
+
+      @include md {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem 1rem;
+      }
+
+      @include sm {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 1rem;
+      }
+
+      @include xs {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .general-detail-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @include sm {
+          gap: 6px;
+        }
+
+        .label {
+          font-size: 12px;
+          font-weight: 400;
+          color: #545f7d;
+          text-transform: uppercase;
+          margin: 0;
+          letter-spacing: 0.3px;
+
+          @include sm {
+            font-size: 11px;
+          }
+
+          @include xs {
+            font-size: 10px;
+          }
+        }
+
+        .value {
+          font-size: 16px;
+          font-weight: 500;
+          color: #545f7d;
+          margin: 0;
+          word-break: break-word;
+
+          @include md {
+            font-size: 15px;
+          }
+
+          @include sm {
+            font-size: 14px;
+          }
+
+          @include xs {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}

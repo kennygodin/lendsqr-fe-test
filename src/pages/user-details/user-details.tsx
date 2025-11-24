@@ -123,7 +123,11 @@ const UserDetailsPage = () => {
       </div>
 
       <div className="outlet">
-        <Outlet />
+        <Outlet
+          context={{
+            user: user,
+          }}
+        />
       </div>
     </div>
   );

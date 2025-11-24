@@ -30,7 +30,7 @@ import BankDetailsPage from "./pages/user-details/bank-details";
 import UserLoansPage from "./pages/user-details/user-loans";
 import UserSavingsPage from "./pages/user-details/user-savings";
 import AppSystemPage from "./pages/user-details/app-system";
-import GeneralDetailsPage from "./pages/user-details/general-details";
+import GeneralDetailsPage from "./pages/user-details/general-details/general-details";
 
 function App() {
   const queryClient = new QueryClient();
