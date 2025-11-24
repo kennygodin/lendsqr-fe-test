@@ -1,0 +1,29 @@
+.user-details-container {
+  padding: 4rem;
+  font-family: "Work Sans", sans-serif;
+
+  .back-button {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #545f7d;
+    font-weight: 400;
+    text-align: left;
+    font-family: "Work Sans", sans-serif;
+
+    transition: all 0.2s ease;
+
+    svg {
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      transform: scale(0.98);
+    }
+  }
+}

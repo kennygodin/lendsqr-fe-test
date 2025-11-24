@@ -48,21 +48,7 @@ export const UserFilterPopup = ({ columnId }: UserFilterPopupProps) => {
         }}
         aria-label="Filter column"
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M2.66667 4H13.3333M4.66667 8H11.3333M6.66667 12H9.33333"
-            stroke="#545F7D"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <img src="/icons/filter.svg" alt="filter" />
       </button>
 
       {isOpen && (
