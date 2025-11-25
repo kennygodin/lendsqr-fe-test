@@ -1,9 +1,21 @@
 import "./sidebar.scss";
 import { useLocation, useNavigate } from "react-router";
+import { useState, useEffect } from "react";
 
 const Sidebar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsCollapsed(window.innerWidth < 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const menuSections = [
     {
@@ -139,32 +151,41 @@ const Sidebar = () => {
           path: "/audit-logs",
           isActive: pathname.includes("/audit-logs"),
         },
+        {
+          name: "Systems Messages",
+          icon: "/icons/settings.svg",
+          path: "/messages",
+          isActive: pathname.includes("/messages"),
+        },
       ],
     },
   ];
 
   return (
-    <div className="sidebar-container">
+    <div className={`sidebar-container ${isCollapsed ? "collapsed" : ""}`}>
       <div className="sidebar-header">
-        <img src="/images/logo.svg" alt="lendsqr" />
+        <img
+          src={isCollapsed ? "/lendsqr.svg" : "/images/logo.svg"}
+          alt="lendsqr"
+        />
       </div>
 
       <div className="sidebar-main">
         <div className="switch-organization">
           <img src="/icons/briefcase.svg" alt="briefcase" />
-          <p>Switch Organization</p>
-          <img src="/icons/drop-arrow.svg" alt="arrow-down" />
+          {!isCollapsed && <p>Switch Organization</p>}
+          {!isCollapsed && <img src="/icons/drop-arrow.svg" alt="arrow-down" />}
         </div>
 
         <div className="dashboard">
           <img src="/icons/home.svg" alt="home" />
-          <p>Dashboard</p>
+          {!isCollapsed && <p>Dashboard</p>}
         </div>
 
         <div className="sidebar-items">
           {menuSections.map((section) => (
             <section key={section.title}>
-              <p className="section-title">{section.title}</p>
+              {!isCollapsed && <p className="section-title">{section.title}</p>}
 
               <div className="item-list">
                 {section.items.map((item) => (
@@ -172,14 +193,24 @@ const Sidebar = () => {
                     key={item.name}
                     className={`menu-item ${item.isActive ? "active" : ""}`}
                     onClick={() => navigate(item.path)}
+                    title={isCollapsed ? item.name : ""}
                   >
                     <img src={item.icon} alt="" />
-                    <p>{item.name}</p>
+                    {!isCollapsed && <p>{item.name}</p>}
                   </div>
                 ))}
               </div>
             </section>
           ))}
+        </div>
+
+        <div className="sidebar-footer">
+          <div className="sidebar-footer-logout">
+            <img src="/icons/logout.svg" alt="logout" />
+            {!isCollapsed && <p className="logout-text">Logout</p>}
+          </div>
+
+          {!isCollapsed && <p className="sidebar-footer-version">v1.2.0</p>}
         </div>
       </div>
     </div>

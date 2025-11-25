@@ -9,10 +9,11 @@
     display: flex;
 
     .sidebar-wrapper {
-      display: none;
+      width: 80px;
+      flex-shrink: 0;
 
       @include min-lg {
-        display: block;
+        width: 300px;
       }
     }
 
