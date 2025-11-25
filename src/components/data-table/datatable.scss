@@ -10,7 +10,7 @@
     border-radius: 4px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.04);
     overflow-x: auto;
-    border-radius: 4px 
+    border-radius: 4px;
   }
 
   .datatable {
@@ -18,6 +18,7 @@
     border-collapse: collapse;
     font-size: 14px;
     background: #fff;
+    min-width: 600px;
 
     thead {
       background: #fff;
@@ -36,6 +37,7 @@
         letter-spacing: 0.05em;
         border-bottom: 1px solid #e5e7eb;
         transition: background-color 0.2s ease;
+        white-space: nowrap;
 
         &.first-column {
           padding-left: 30px;
@@ -153,9 +155,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 30px;
-    // border: 1px solid #e5e7eb;
-    border-top: none;
     background-color: #ffffff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    overflow-x: auto;
+    min-width: 600px;
+    flex-wrap: wrap;
+    gap: 16px;
 
     .showing-info {
       display: flex;
@@ -163,6 +170,8 @@
       gap: 8px;
       font-size: 14px;
       color: #545f7d;
+      flex-shrink: 0;
+      white-space: nowrap;
 
       .page-size-select {
         padding: 6px 28px 6px 10px;
@@ -200,6 +209,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0;
 
       .nav-button {
         width: 24px;
@@ -213,6 +223,7 @@
         color: #213f7d;
         cursor: pointer;
         transition: all 0.2s ease;
+        flex-shrink: 0;
 
         svg {
           stroke: #213f7d;
@@ -254,6 +265,7 @@
           font-family: "Work Sans", sans-serif;
           cursor: pointer;
           transition: all 0.2s ease;
+          flex-shrink: 0;
 
           &:hover:not(.active):not(.ellipsis):not(:disabled) {
             background-color: rgba(84, 95, 125, 0.1);
@@ -275,6 +287,21 @@
             cursor: not-allowed;
           }
         }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .table-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 20px;
+
+      .showing-info,
+      .pagination-controls {
+        width: 100%;
+        justify-content: center;
       }
     }
   }

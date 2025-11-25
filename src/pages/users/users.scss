@@ -1,11 +1,33 @@
+@use "@/styles/mixins" as *;
+
 .users-container {
   padding: 4rem;
   font-family: "Work Sans", sans-serif;
+
+  @include lg {
+    padding: 2.5rem;
+  }
+
+  @include md {
+    padding: 2rem;
+  }
+
+  @include sm {
+    padding: 1rem;
+  }
 
   h1 {
     font-size: 24px;
     font-weight: 500;
     color: rgba(33, 63, 125, 1);
+
+    @include md {
+      font-size: 22px;
+    }
+
+    @include sm {
+      font-size: 20px;
+    }
   }
 
   .user-card-container {
@@ -14,8 +36,24 @@
     flex-wrap: wrap;
     gap: 1.5rem;
 
+    @include lg {
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @include sm {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
     .user-card {
-      min-width: 250px;
+      min-width: 220px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -26,6 +64,16 @@
       border-radius: 4px;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.04);
 
+      @include md {
+        padding: 1.5rem;
+        gap: 0.7rem;
+      }
+
+      @include sm {
+        padding: 1.25rem;
+        gap: 0.6rem;
+      }
+
       .icon-container {
         width: 40px;
         height: 40px;
@@ -34,6 +82,21 @@
         align-items: center;
         justify-content: center;
         background-color: rgba(223, 24, 255, 0.1);
+
+        @include sm {
+          width: 36px;
+          height: 36px;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+
+          @include sm {
+            width: 18px;
+            height: 18px;
+          }
+        }
       }
 
       .card-label {
@@ -41,17 +104,41 @@
         font-weight: 500;
         text-transform: uppercase;
         color: rgba(84, 95, 125, 0.8);
+
+        @include sm {
+          font-size: 12px;
+        }
       }
 
       .card-value {
         font-size: 24px;
         font-weight: 600;
         color: rgba(33, 63, 125, 1);
+
+        @include md {
+          font-size: 22px;
+        }
+
+        @include sm {
+          font-size: 20px;
+        }
       }
     }
   }
 
   .users-table-section {
     margin-top: 3rem;
+
+    @include lg {
+      margin-top: 2.5rem;
+    }
+
+    @include md {
+      margin-top: 2rem;
+    }
+
+    @include sm {
+      margin-top: 1.5rem;
+    }
   }
 }
