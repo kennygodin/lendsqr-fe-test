@@ -1,6 +1,13 @@
 import "./navbar.scss";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <div className="navbar-container">
       <div className="search-container">
@@ -10,7 +17,13 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className="nav-items">
+      <div className="hamburger" onClick={toggleMobileMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div className={`nav-items ${isMobileMenuOpen ? "mobile-open" : ""}`}>
         <div className="nav-item">
           <p className="docs">Docs</p>
         </div>
@@ -25,6 +38,10 @@ const Navbar = () => {
           <img src="/icons/cvr-arrow-down.svg" alt="cvr-arrow-down" />
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="mobile-overlay" onClick={toggleMobileMenu}></div>
+      )}
     </div>
   );
 };
