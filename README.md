@@ -193,16 +193,16 @@ src/
 
 ```bash
 # Run all tests
-bun test
+npm test
 
 # Watch mode (recommended during development)
-bun test --watch
+npm run test --watch
 
 # With UI (visual test runner)
-bun test:ui
+npm run test:ui
 
 # Generate coverage report
-bun test:coverage
+npm run test:coverage
 ```
 
 ### Test Coverage
