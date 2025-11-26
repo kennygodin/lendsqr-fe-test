@@ -123,7 +123,7 @@
           color: #ffffff;
 
           &:hover {
-            background-color: darken(#39cdcc, 5%);
+            background-color: color.scale(#39cdcc, $lightness: -10%);
           }
 
           &:active {

@@ -32,6 +32,7 @@ import UserSavingsPage from "./pages/user-details/user-savings";
 import AppSystemPage from "./pages/user-details/app-system";
 import GeneralDetailsPage from "./pages/user-details/general-details/general-details";
 import MessagesPage from "./pages/messages/messages";
+import NotFound from "./pages/not-found/not-found";
 
 function App() {
   const queryClient = new QueryClient();
@@ -75,6 +76,7 @@ function App() {
             <Route path="/audit-logs" element={<AuditLogsPage />} />
             <Route path="/messages" element={<MessagesPage />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
